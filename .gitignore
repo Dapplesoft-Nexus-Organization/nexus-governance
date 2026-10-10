@@ -1,0 +1,14 @@
+# Environment & Secrets
+.env
+.env.local
+*.secret.yaml
+
+# Node / Tools
+node_modules/
+.npm/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
