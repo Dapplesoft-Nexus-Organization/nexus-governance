@@ -32,7 +32,7 @@ for %%R in (%REPOS%) do (
     if exist "%ROOT_DIR%\%%R" (
         pushd "%ROOT_DIR%\%%R"
         git add .
-        git commit -m "feat: initial repository setup with eShop & srv master guidelines"
+        git commit -m "feat: initial repository setup with eShop & srv master guidelines" 2>nul
         git push -u origin main
         popd
     ) else (
