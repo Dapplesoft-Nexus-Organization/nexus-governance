@@ -35,6 +35,15 @@ This document serves as the master reference, binding policy specification, and 
 
 ```text
 nexus-governance/
+├── docs/
+│   ├── architecture/           # Master system architecture specifications & planning
+│   ├── roadmap/                # Execution roadmaps & repo specifications
+│   ├── planning/               # Phase-wise core, orchestrator & web execution plans
+│   └── setup/                  # GitHub Desktop & online repository setup guides
+├── scripts/
+│   ├── create-gh-repos.bat     # Automated GitHub CLI repository creation
+│   ├── init-all-repos.bat      # Local Git initializer & remote linker
+│   └── user-commit-and-push-all.bat # Developer one-click commit & push script
 ├── policies/
 │   ├── risk-rules.yaml         # Hard risk thresholds (Low, Medium, High, Critical)
 │   ├── auth-matrix.yaml        # Role & Capability permissions
