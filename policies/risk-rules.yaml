@@ -1,0 +1,37 @@
+# Multi-Tier Risk Rules for Dapplesoft Nexus
+version: "1.0"
+policies:
+  - id: R0_READ_ONLY
+    description: "Read-only operations, queries, and system telemetry"
+    requires_approval: false
+    auto_execute: true
+    tools:
+      - "repo.read_file"
+      - "system.get_metrics"
+      - "browser.crawl_readonly"
+
+  - id: R1_SAFE_MUTATION
+    description: "Safe file creation, tests in isolated sandboxes"
+    requires_approval: false
+    auto_execute: true
+    sandbox_required: true
+    tools:
+      - "sandbox.run_tests"
+      - "report.generate"
+
+  - id: R2_SENSITIVE_MUTATION
+    description: "Production filesystem mutations, database schema migrations"
+    requires_approval: true
+    requires_mfa: false
+    tools:
+      - "db.apply_migration"
+      - "deploy.restart_service"
+
+  - id: R3_CRITICAL_DESTRUCTIVE
+    description: "Destructive operations, credential changes, emergency stops"
+    requires_approval: true
+    requires_mfa: true
+    tools:
+      - "db.drop_table"
+      - "system.emergency_pause"
+      - "security.rotate_keys"

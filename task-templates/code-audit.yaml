@@ -1,0 +1,20 @@
+# Task Template: Repository Static Security Audit
+type: security.repo_audit
+version: 1
+parameters:
+  target_repo: string
+  branch: string
+steps:
+  - id: step_clone
+    tool: repo.clone_sandbox
+    risk: low
+    env: E0
+  - id: step_scan_secrets
+    tool: security.trivy_secrets
+    risk: low
+  - id: step_generate_report
+    tool: report.generate_markdown
+    risk: low
+acceptance:
+  - "report.generated == true"
+  - "no_secrets_leaked == true"

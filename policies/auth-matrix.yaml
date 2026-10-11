@@ -1,0 +1,9 @@
+# Authorization Matrix
+version: "1.0"
+roles:
+  - name: SuperAdmin
+    capabilities: ["*"]
+  - name: Operator
+    capabilities: ["read", "execute:r0", "execute:r1", "approve:r2"]
+  - name: Auditor
+    capabilities: ["read:audit", "read:telemetry"]
