@@ -62,3 +62,15 @@ nexus-governance/
 ├── schemas/                    # JSON Schemas validating YAML definitions
 └── docs/                       # Architecture & planning documentation
 ```
+
+---
+
+## 4. 100% Dynamic AI & Tool Registry Architecture (Zero Fixed Models, Zero Fixed Tools)
+
+Per governance policy `docs/planning/05-dynamic-ai-tools-and-resource-orchestration-policy.md`:
+- **Zero Fixed Models or Tools**: No AI model or tool is hardcoded. Everything is stored and dynamically queried from database tables (`ai_models` and `system_tools`).
+- **Dynamic Capacity & Cost Tracking**: Every AI and tool entry defines capacity, whether it is open-source, free-tier quotas, or execution costs ($).
+- **Admin Control Tower**: The Admin Panel provides complete centralized control over adding/editing models and tools, switching the Primary Brain with 1-click, and setting quotas.
+- **Data-Driven Autonomous Decisions**: The Primary Brain reads live database records (capacity, open-source, free status, resource constraints) to autonomously decide which tool and model to select for any workflow.
+
+
